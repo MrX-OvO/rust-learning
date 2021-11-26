@@ -5,7 +5,7 @@ fn main() {
 }
 
 // 查找字符串第一个单词
-fn find_first_word(s: &String) -> &str {
+fn find_first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {

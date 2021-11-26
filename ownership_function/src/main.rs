@@ -15,6 +15,10 @@ fn main() {
 
     let s = take_and_give_back_ownership(required_str);
     println!("after called func take_and_give_back_ownership, s={}", s);
+    /*println!(
+        "after called func givenowners, requiredStr={}",
+        required_str // borrow of moved value: `required_str` value borrowed here after move
+    );*/
 }
 
 fn takeownership(owners: String) {

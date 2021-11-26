@@ -1,20 +1,16 @@
 fn main() {
-    let mut s = String::from("Hello, world!");
-    let word_index = find_first_word(&s);
-    s.clear();
-    println!(
-        "The first-word's index range of `{}` is 0-{}",
-        s, word_index
-    );
+    let s = String::from("Hello world!");
+    let first_word = find_first_word(&s);
+    println!("The first word of `{}` is {}", s, first_word);
 }
 
 // 查找字符串第一个单词
-fn find_first_word(s: &String) -> usize {
+fn find_first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return i;
+            return &s[..i];
         }
     }
-    s.len()
+    &s[..]
 }

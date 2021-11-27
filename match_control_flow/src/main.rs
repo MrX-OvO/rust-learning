@@ -32,6 +32,15 @@ fn main() {
         3 => println!("three"),
         _ => println!("..."), // u8共有256种模式，`_` 代替剩余的模式
     }
+
+    // if let 简单模式匹配，只会匹配一种模式，放弃穷举的可能
+    // 可以把if let看做match的语法糖
+    let op: Option<i32> = Some(0);
+    if let Some(3) = op {
+        println!("three");
+    } else {
+        println!("other Option<i32>s")
+    };
 }
 
 fn value_in_cents(coin: &Coin) -> u8 {

@@ -7,7 +7,7 @@ mod front_of_house {
     pub mod serving {
         fn take_order() {}
         pub fn serve_order() {}
-        fn take_payment() {}
+        pub fn take_payment() {}
     }
 }
 
@@ -48,4 +48,34 @@ pub fn eat_at_restaurant() {
     meal.toast = String::from("Wheat");
     println!("I'd like {} toast please", meal.toast);
     // meal.seasonal_fruit = String::from("blueberries"); // field `seasonal_fruit` of struct `Breakfast` is private
+}
+
+// use绝对路径和相对路径
+// use crate::front_of_house::serving
+use front_of_house::serving;
+// fn:引用到要使用的fn的父级所在模块
+// struct, enum:引用到自身完整路径，同名条目指定到父级，as指定本地别名
+use back_of_house::Appetizer;
+use back_of_house::Breakfast;
+
+use std::fmt::Result;
+use std::io::Result as IOResult;
+
+// pub use
+pub use back_of_house;
+
+// 嵌套use
+// use std::cmp::Ordering;
+// use std::io;
+use std::{cmp::Ordering, io};
+
+// use std::io;
+// use std::io::Write;
+use std::io{self, Write};
+
+// 使用通配符*导入所有公共模块，常用于tests模块或preload模块
+use std::io::*;
+
+pub fn pay() {
+    serving::take_payment();
 }

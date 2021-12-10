@@ -1,5 +1,6 @@
 fn main() {
     // 1.Vector
+    println!("1.Vector");
     // let v: Vec<i32> = Vec::new(); // 创建空Vector，需要指定数据类型
     let v = vec![1, 2, 3, 4]; // vec!宏，用于创建Vector
     for item in v.iter() {
@@ -43,6 +44,7 @@ fn main() {
     ];
 
     // 2.String
+    println!("\n2.String");
     let mut s = String::new();
     let data = "initial content";
     s = data.to_string();
@@ -103,7 +105,6 @@ fn main() {
     for b in s.chars() {
         println!("byte:{}, len:{}", b, b.len_utf8());
     }
-    println!("============");
 
     // 切割String
     let s = String::from("Здравствуйте");
@@ -112,4 +113,60 @@ fn main() {
     }
     let s0 = &s[0..4];
     println!("s0 = \"{}\"", s0);
+
+    // 3.HashMap
+    println!("\n3.HashMap");
+    use std::collections::HashMap;
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Tom"), 80);
+    scores.insert(String::from("Jerry"), 90);
+
+    for (k, v) in &scores {
+        println!("key:{}, value:{}", k, v);
+    }
+    let key = String::from("Tom");
+    let score = scores.get(&key);
+    match score {
+        Some(s) => println!("score:{}", s),
+        None => println!("key not exist"),
+    }
+
+    let names = vec![String::from("Tom"), String::from("Jerry")];
+    let scores2 = vec![80, 90];
+    let scores3: HashMap<_, _> = names.iter().zip(scores2.iter()).collect();
+
+    for (k, v) in &scores3 {
+        println!("key:{}, value:{}", k, v);
+    }
+    let key = String::from("Tom");
+    let score = scores3.get(&key);
+    match score {
+        Some(s) => println!("score:{}", s),
+        None => println!("key not exist"),
+    }
+
+    let field_key = String::from("Favorite color");
+    let field_value = String::from("Blue");
+    let mut map = HashMap::new();
+    map.insert(&field_key, &field_value);
+    println!("field_key:{}, file_value:{}", field_key, field_value);
+    let mut map = HashMap::new();
+    map.insert(field_key, field_value);
+    // println!("field_key:{}, file_value:{}",field_key,field_value); // borrow of moved value: `field_key` `field_value`
+
+    let mut map = HashMap::new();
+    map.insert(String::from("Blue"), 50);
+    map.entry(String::from("Yellow")).or_insert(90);
+    println!("{:#?}", map);
+    let e = map.entry(String::from("Blue"));
+    println!("{:#?}", e);
+    e.or_insert(70);
+
+    let text = String::from("Hello world and hello my friend and j");
+    let mut map = HashMap::new();
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0); // word不存在，返回0；word存在，返回对应的value；返回的都是可变引用
+        *count += 1;
+    }
+    println!("{:#?}", map);
 }

@@ -62,19 +62,24 @@ use std::fmt::Result;
 use std::io::Result as IOResult;
 
 // pub use
-pub use back_of_house;
+pub use front_of_house::hosting;
+pub fn eat_at_restaurant_() {
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+    hosting::add_to_waitlist();
+}
 
 // 嵌套use
 // use std::cmp::Ordering;
-// use std::io;
-use std::{cmp::Ordering, io};
+// use std::fmt::Display;
+use std::{cmp::Ordering, fmt::Display};
 
 // use std::io;
 // use std::io::Write;
-use std::io{self, Write};
+use std::io::{self, Write};
 
 // 使用通配符*导入所有公共模块，常用于tests模块或preload模块
-use std::io::*;
+use std::collections::*;
 
 pub fn pay() {
     serving::take_payment();

@@ -1,5 +1,5 @@
 // 1.函数泛型
-/* fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> T {
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
     for &item in list {
         if item > largest {
@@ -7,7 +7,7 @@
         }
     }
     largest
-} */
+}
 
 // 2.struct泛型
 struct Point<T, U> {
@@ -44,8 +44,8 @@ impl<T, U> Point<T, U> {
 
 fn main() {
     let list = vec![1, 2, 3, 4, 5, 6];
-    /*     let largest = largest(&list);
-    println!("largest in list({:?}) is {}", list, largest); */
+    let largest = largest(&list);
+    println!("largest in list({:?}) is {}", list, largest);
 
     let integer_p = Point { x: 10, y: 20 };
     let p = Point { x: 10.2, y: 20 };

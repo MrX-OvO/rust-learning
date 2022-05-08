@@ -7,7 +7,14 @@ fn simulated_expensive_calculation(intensity: u32) -> u32 {
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
-    let expensive_result = simulated_expensive_calculation(intensity);
+    // 定义匿名函数
+    let expensive_closure = |num| {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+    let expensive_result = expensive_closure(intensity);
+
     if intensity < 25 {
         println!("Today, do {} pushups!", expensive_result);
         println!("Next, do {} situps!", expensive_result);

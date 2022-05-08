@@ -55,6 +55,20 @@ fn main() {
     let simulated_random_number = 7;
 
     generate_workout(simulated_user_specified_value, simulated_random_number);
+
+    let x = 10;
+    /* fn is_equal(z: u32) -> bool {
+        z == x // can't capture dynamic environment in a fn item
+    } */
+    let is_equal = |z| z == x;
+    println!("x = {}, z = {}, is_equal = {}", x, 10, is_equal(10));
+
+    let v = vec![0, 1, 2];
+    println!("v = {:?}", v);
+    let equal_to_v = move |z| z == v;
+    //println!("v = {:?}", v); // borrow of moved value: `v`
+    let y = vec![0, 1, 2];
+    assert!(equal_to_v(y));
 }
 
 #[cfg(test)]

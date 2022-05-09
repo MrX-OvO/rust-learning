@@ -2,6 +2,11 @@
 //!
 //! A library for modeling artistic concepts.
 
+// 增加 pub use 语句重导出项
+pub use self::kinds::PrimaryColor;
+pub use self::kinds::SecondaryColor;
+pub use self::utils::mix;
+
 pub mod kinds {
     /// The primary colors according to the RYB color model.
     pub enum PrimaryColor {

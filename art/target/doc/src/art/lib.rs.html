@@ -30,9 +30,19 @@
 <span id="28">28</span>
 <span id="29">29</span>
 <span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
 </pre><pre class="rust"><code><span class="doccomment">//! # Art</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! A library for modeling artistic concepts.</span>
+
+<span class="comment">// 增加 pub use 语句重导出项</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::kinds::PrimaryColor</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::kinds::SecondaryColor</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::utils::mix</span>;
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">kinds</span> {
     <span class="doccomment">/// The primary colors according to the RYB color model.</span>

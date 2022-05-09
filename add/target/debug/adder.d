@@ -1,0 +1,1 @@
+/home/mrxovo/Codes/rust-learning/add/target/debug/adder: /home/mrxovo/Codes/rust-learning/add/add_one/src/lib.rs /home/mrxovo/Codes/rust-learning/add/add_rand/src/lib.rs /home/mrxovo/Codes/rust-learning/add/add_tow/src/lib.rs /home/mrxovo/Codes/rust-learning/add/adder/src/main.rs

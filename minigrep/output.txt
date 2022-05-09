@@ -1,2 +1,5 @@
 Are you nobody, too?
 How dreary to be somebody!
+rust is a language
+Rust is a language
+rUst is a language

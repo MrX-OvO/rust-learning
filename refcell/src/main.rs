@@ -17,8 +17,13 @@ fn main() {
     let b = Cons(Rc::new(RefCell::new(3)), Rc::clone(&a));
     let c = Cons(Rc::new(RefCell::new(4)), Rc::clone(&a));
 
+    println!("a before = {:?}", a);
+    println!("b before = {:?}", b);
+    println!("c before = {:?}", c);
+
     *value.borrow_mut() += 10;
 
+    println!("===============");
     println!("a after = {:?}", a);
     println!("b after = {:?}", b);
     println!("c after = {:?}", c);

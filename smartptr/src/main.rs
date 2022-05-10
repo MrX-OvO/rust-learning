@@ -6,10 +6,45 @@ enum List {
 
 use crate::List::{Cons, Nil};
 
+#[derive(Debug)]
+struct MyBox<T>(T);
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
+
+use std::ops::Deref;
+impl<T> Deref for MyBox<T> {
+    type Target = T;
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+fn hello(s: &str) {
+    println!("Hello, {}!", s);
+}
+
 fn main() {
     let b = Box::new(5);
     println!("b = {}", b);
 
     let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
     println!("list = {:?}", list);
+
+    let x = 5;
+    let y = &x;
+    assert_eq!(x, 5);
+    assert_eq!(*y, 5);
+
+    let y = Box::new(x);
+    assert_eq!(*y, 5);
+
+    let y = MyBox::new(x);
+    assert_eq!(*y, 5);
+
+    let s = MyBox::new(String::from("Rust"));
+    hello(&s);
 }

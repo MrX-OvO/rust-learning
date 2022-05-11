@@ -1,4 +1,4 @@
-#[derive(Debug)]
+/* #[derive(Debug)]
 pub struct AveragedCollection {
     list: Vec<i32>,
     average: f64,
@@ -54,4 +54,42 @@ fn main() {
     let result = obj.remove();
     println!("after remove\nresult: {:?}", result);
     println!("obj: {:?}", obj);
+}
+ */
+
+use oop::Draw;
+use oop::{Button, Screen};
+
+struct SelectBox {
+    width: u32,
+    height: u32,
+    options: Vec<String>,
+}
+
+impl Draw for SelectBox {
+    fn draw(&self) {
+        println!("draw selecbox...");
+    }
+}
+
+fn main() {
+    let screen = Screen {
+        components: vec![
+            Box::new(SelectBox {
+                width: 75,
+                height: 10,
+                options: vec![
+                    String::from("Yes"),
+                    String::from("Maybe"),
+                    String::from("No"),
+                ],
+            }),
+            Box::new(Button {
+                width: 32,
+                height: 32,
+                label: String::from("Ok"),
+            }),
+        ],
+    };
+    screen.run();
 }

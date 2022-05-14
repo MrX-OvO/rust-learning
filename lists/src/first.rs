@@ -15,7 +15,7 @@ pub struct List {
 }
 
 impl List {
-    pub fn new() -> List {
+    pub fn new() -> Self {
         List { head: Link::Empty }
     }
 

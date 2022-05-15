@@ -1,1 +1,1 @@
-/home/mrxovo/Codes/rust-learning/lists/target/debug/liblists.rlib: /home/mrxovo/Codes/rust-learning/lists/src/first.rs /home/mrxovo/Codes/rust-learning/lists/src/lib.rs /home/mrxovo/Codes/rust-learning/lists/src/second.rs
+/home/mrxovo/Codes/rust-learning/lists/target/debug/liblists.rlib: /home/mrxovo/Codes/rust-learning/lists/src/first.rs /home/mrxovo/Codes/rust-learning/lists/src/lib.rs /home/mrxovo/Codes/rust-learning/lists/src/second.rs /home/mrxovo/Codes/rust-learning/lists/src/thrid.rs

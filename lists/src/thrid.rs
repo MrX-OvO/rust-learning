@@ -7,10 +7,6 @@ struct Node<T> {
 
 type Link<T> = Option<Rc<Node<T>>>;
 
-pub struct Lis<T> {
-    head: Link<T>,
-}
-
 pub struct List<T> {
     head: Link<T>,
 }
